@@ -72,5 +72,10 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: <<-SHELL
      apt-get update
      apt-get install -y vim
+     wget https://nodejs.org/dist/v4.4.7/node-v4.4.7-linux-x64.tar.xz
+     tar xvf node-v4.4.7-linux-x64.tar.xz
+     echo 'export PATH=$PATH:$HOME/node-v4.4.7-linux-x64/bin/' >> ~/.bashrc
+     source ~/.bashrc
+     npm install express-generator -g
    SHELL
 end
